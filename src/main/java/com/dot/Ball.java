@@ -9,34 +9,39 @@ class Ball {
     private static final int XSIZE = 20;
     private static final int YSIZE = 20;
     private int x = 0;
-    private int y= 0;
+    private int y = 0;
     private int dx = 2;
     private int dy = 2;
+    private Color color = Color.darkGray;
+    private boolean active = true;
 
-
-    public Ball(Component c){
+    public Ball(Component c) {
         this.canvas = c;
-
-
-        if(Math.random()<0.5){
-            x = new Random().nextInt(this.canvas.getWidth());
+        if (Math.random() < 0.5) {
             y = 0;
-        }else{
+            x = new Random().nextInt(this.canvas.getWidth());
+        } else {
             x = 0;
             y = new Random().nextInt(this.canvas.getHeight());
         }
     }
 
-    public static void f(){
-        int a = 0;
+    public void setColor(Color color) {
+        this.color = color;
     }
 
-    public void draw (Graphics2D g2){
-        g2.setColor(Color.darkGray);
-        g2.fill(new Ellipse2D.Double(x,y,XSIZE,YSIZE));
+    public int getX() { return x; }
+    public int getY() { return y; }
+    public int getSize() { return XSIZE; }
+    public boolean isActive() { return active; }
+    public void deactivate() { active = false; }
 
+    public void draw(Graphics2D g2) {
+        if (active) {
+            g2.setColor(color);
+            g2.fill(new Ellipse2D.Double(x, y, XSIZE, YSIZE));
+        }
     }
-
 
     public void move(){
         x+=dx;
