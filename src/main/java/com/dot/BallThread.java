@@ -5,6 +5,8 @@ import java.awt.*;
 class BallThread extends Thread {
     private Ball b;
     private BallStats stats;
+    private BallThread threadToWaitFor;
+    private int movesCount;
 
     public BallThread(Ball ball, Color color) {
         b = ball;
@@ -17,6 +19,12 @@ class BallThread extends Thread {
         stats = new BallStats(color, this);
     }
 
+    public BallThread(Ball ball, BallThread waitFor, int moves) {
+        b = ball;
+        threadToWaitFor = waitFor;
+        movesCount = moves;
+    }
+
     public BallStats getStats() {
         return stats;
     }
@@ -24,11 +32,19 @@ class BallThread extends Thread {
     @Override
     public void run() {
         try {
-            while (b.isActive()) {
+            // Wait for the other thread if specified
+            if (threadToWaitFor != null) {
+                threadToWaitFor.join();
+            }
+
+            int moves = 0;
+            while (b.isActive() && moves < movesCount) {
                 b.move();
-                stats.update(b.getDistanceTraveled(), b.getRunningTime());
+                moves++;
                 Thread.sleep(5);
             }
+            b.setCompleted(true);
+
         } catch (InterruptedException ex) {
             // Handle interruption
         }

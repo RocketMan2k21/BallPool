@@ -16,19 +16,14 @@ class Ball {
     private boolean active = true;
     private long startTime;
     private long distanceTraveled = 0;
+    private boolean completed = false;
 
-    public Ball(Component c, Color color) {
+    public Ball(Component c, Color color, int startX, int startY) {
         this.canvas = c;
         this.color = color;
+        this.x = startX;
+        this.y = startY;
         this.startTime = System.currentTimeMillis();
-
-        if(Math.random()<0.5){
-            x = new Random().nextInt(this.canvas.getWidth());
-            y = 0;
-        }else{
-            x = 0;
-            y = new Random().nextInt(this.canvas.getHeight());
-        }
     }
 
     public void setColor(Color color) {
@@ -54,6 +49,14 @@ class Ball {
 
     public long getRunningTime() {
         return System.currentTimeMillis() - startTime;
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
     }
 
     public void move() {
