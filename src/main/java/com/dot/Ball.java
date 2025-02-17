@@ -12,15 +12,20 @@ class Ball {
     private int y = 0;
     private int dx = 2;
     private int dy = 2;
-    private Color color = Color.darkGray;
+    private Color color;
     private boolean active = true;
+    private long startTime;
+    private long distanceTraveled = 0;
 
-    public Ball(Component c) {
+    public Ball(Component c, Color color) {
         this.canvas = c;
-        if (Math.random() < 0.5) {
-            y = 0;
+        this.color = color;
+        this.startTime = System.currentTimeMillis();
+
+        if(Math.random()<0.5){
             x = new Random().nextInt(this.canvas.getWidth());
-        } else {
+            y = 0;
+        }else{
             x = 0;
             y = new Random().nextInt(this.canvas.getHeight());
         }
@@ -43,23 +48,41 @@ class Ball {
         }
     }
 
-    public void move(){
-        x+=dx;
-        y+=dy;
-        if(x<0){
+    public long getDistanceTraveled() {
+        return distanceTraveled;
+    }
+
+    public long getRunningTime() {
+        return System.currentTimeMillis() - startTime;
+    }
+
+    public void move() {
+        if (!active) return;
+
+        int oldX = x;
+        int oldY = y;
+
+        x += dx;
+        y += dy;
+
+        // Calculate distance traveled
+        distanceTraveled += Math.sqrt(Math.pow(x - oldX, 2) + Math.pow(y - oldY, 2));
+
+        // Boundary checks remain the same...
+        if (x < 0) {
             x = 0;
             dx = -dx;
         }
-        if(x+XSIZE>=this.canvas.getWidth()){
-            x = this.canvas.getWidth()-XSIZE;
+        if (x + XSIZE >= this.canvas.getWidth()) {
+            x = this.canvas.getWidth() - XSIZE;
             dx = -dx;
         }
-        if(y<0){
-            y=0;
+        if (y < 0) {
+            y = 0;
             dy = -dy;
         }
-        if(y+YSIZE>=this.canvas.getHeight()){
-            y = this.canvas.getHeight()-YSIZE;
+        if (y + YSIZE >= this.canvas.getHeight()) {
+            y = this.canvas.getHeight() - YSIZE;
             dy = -dy;
         }
         this.canvas.repaint();

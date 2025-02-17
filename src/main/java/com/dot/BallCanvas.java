@@ -8,11 +8,28 @@ import java.util.concurrent.atomic.AtomicInteger;
 class BallCanvas extends JPanel {
     private ArrayList<Ball> balls = new ArrayList<>();
     private ArrayList<Pocket> pockets = new ArrayList<>();
+    private ArrayList<BallThread> threads = new ArrayList<>();
     private AtomicInteger pocketedBalls = new AtomicInteger(0);
+    private JTextArea statsArea;
 
-    public BallCanvas() {
-        // Add pockets in corners and middle of sides
+    public BallCanvas(JTextArea statsArea) {
+        this.statsArea = statsArea;
         addPockets();
+        // Start stats update timer
+        new Timer(100, e -> updateStats()).start();
+    }
+
+    public void add(Ball b, BallThread thread) {
+        balls.add(b);
+        threads.add(thread);
+    }
+
+    private void updateStats() {
+        StringBuilder stats = new StringBuilder("Performance Statistics:\n");
+        for (BallThread thread : threads) {
+            stats.append(thread.getStats().toString()).append("\n");
+        }
+        statsArea.setText(stats.toString());
     }
 
     private void addPockets() {
@@ -64,5 +81,9 @@ class BallCanvas extends JPanel {
                 b.draw(g2);
             }
         }
+    }
+
+    public ArrayList<BallThread> getThreads() {
+        return threads;
     }
 }
