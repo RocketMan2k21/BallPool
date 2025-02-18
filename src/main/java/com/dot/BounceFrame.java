@@ -23,19 +23,19 @@ class BounceFrame extends JFrame {
         statsArea = new JTextArea(5, 40);
         statsArea.setEditable(false);
 
-        this.canvas = new BallCanvas(statsArea);
+        JPanel controlPanel = new JPanel();
+        controlPanel.setLayout(new BorderLayout());
+
+        scoreLabel = new JLabel("Pocketed Balls: 0");
+        controlPanel.add(scoreLabel, BorderLayout.NORTH);
+
+        this.canvas = new BallCanvas(statsArea, scoreLabel);
 
         Container content = this.getContentPane();
         content.add(this.canvas, BorderLayout.CENTER);
 
-        JPanel controlPanel = new JPanel();
-        controlPanel.setLayout(new BorderLayout());
-
         JPanel buttonPanel = new JPanel();
         buttonPanel.setBackground(Color.lightGray);
-
-        scoreLabel = new JLabel("Pocketed Balls: 0");
-        controlPanel.add(scoreLabel, BorderLayout.NORTH);
 
         joinDemoButton = new JButton("Run Join Demo");
         joinDemoButton.addActionListener(e -> runJoinDemo());
@@ -112,7 +112,7 @@ class BounceFrame extends JFrame {
         for (int i = 0; i < colors.length; i++) {
             Ball ball = new Ball(canvas, colors[i], startX[i], 50);
             balls.add(ball);
-            BallThread thread = new BallThread(ball, previousThread, moves[i]);
+            BallThread thread = new BallThreadLimited(ball, colors[i], previousThread, moves[i]);
             canvas.add(ball, thread);
             previousThread = thread;
         }

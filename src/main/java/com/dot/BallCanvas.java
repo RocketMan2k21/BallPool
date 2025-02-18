@@ -11,12 +11,17 @@ class BallCanvas extends JPanel {
     private ArrayList<BallThread> threads = new ArrayList<>();
     private AtomicInteger pocketedBalls = new AtomicInteger(0);
     private JTextArea statsArea;
+    private JLabel scoreLabel;
 
-    public BallCanvas(JTextArea statsArea) {
+    public BallCanvas(JTextArea statsArea, JLabel scoreLabel) {
         this.statsArea = statsArea;
+        this.scoreLabel = scoreLabel;
+
         addPockets();
+
         // Start stats update timer
         new Timer(100, e -> updateStats()).start();
+        updateScore();
     }
 
     public void add(Ball b, BallThread thread) {
@@ -54,7 +59,7 @@ class BallCanvas extends JPanel {
         balls.add(b);
     }
 
-    public int getPocketedBallsCount() {
+    private int getPocketedBallsCount() {
         return pocketedBalls.get();
     }
 
@@ -85,5 +90,12 @@ class BallCanvas extends JPanel {
 
     public ArrayList<BallThread> getThreads() {
         return threads;
+    }
+
+    private void updateScore() {
+        Timer timer = new Timer(100, e -> {
+            scoreLabel.setText("Pocketed Balls: " + getPocketedBallsCount());
+        });
+        timer.start();
     }
 }
