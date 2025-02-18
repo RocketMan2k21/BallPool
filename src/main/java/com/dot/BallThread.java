@@ -4,7 +4,7 @@ import java.awt.*;
 
 class BallThread extends Thread {
     protected Ball b;
-    private BallStats stats;
+    protected BallStats stats;
 
     public BallThread(Ball ball, Color color) {
         b = ball;

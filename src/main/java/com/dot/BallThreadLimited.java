@@ -24,6 +24,7 @@ public class BallThreadLimited extends BallThread{
             while (b.isActive() && moves < movesCount) {
                 b.move();
                 moves++;
+                stats.update(b.getDistanceTraveled(), b.getRunningTime());
                 Thread.sleep(5);
             }
             b.setCompleted(true);

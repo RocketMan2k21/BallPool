@@ -80,6 +80,7 @@ class BallCanvas extends JPanel {
                     if (pocket.catchesBall(b)) {
                         b.deactivate();
                         pocketedBalls.incrementAndGet();
+
                         break;
                     }
                 }

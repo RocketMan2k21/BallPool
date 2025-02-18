@@ -76,6 +76,8 @@ class BounceFrame extends JFrame {
 
     private void runPriorityExperiment() {
         // Add one red ball
+
+        canvas.getThreads().clear();
         Ball redBall = new Ball(canvas, Color.RED,
                 canvas.getWidth() / 4,
                 canvas.getHeight() / 2);
@@ -98,6 +100,7 @@ class BounceFrame extends JFrame {
     private void runJoinDemo() {
         // Disable the button during demo
         joinDemoButton.setEnabled(false);
+        canvas.getThreads().clear();
 
         // Create a sequence of balls with different colors
         Color[] colors = {Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW};
