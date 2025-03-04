@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="eacc05ef-756b-4c22-bf6a-62866fa07d72" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dot/Ball.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dot/BallCanvas.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dot/BallStats.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dot/BallThread.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dot/BallThreadLimited.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dot/BounceFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dot/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dot/Pocket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dot/counter/CounterTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dot/counter/LockCounter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dot/counter/SynchronizedBlockCounter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dot/counter/SynchronizedMethodCounter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dot/counter/UnsynchronizedCounter.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectId" id="2trmi4xPt30MBF60ZI4F7KN62fc" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "jdk.selected.JAVA_MODULE": "19"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="eacc05ef-756b-4c22-bf6a-62866fa07d72" name="Changes" comment="" />
+      <created>1741118691858</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1741118691858</updated>
+    </task>
+    <servers />
+  </component>
+</project>
