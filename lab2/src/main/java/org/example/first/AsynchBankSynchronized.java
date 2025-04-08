@@ -40,7 +40,6 @@ public class AsynchBankSynchronized {
                 if (ntransacts % NTEST == 0)
                     test();
 
-                // Сповіщення інших потоків про зміну стану
                 notifyAll();
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
