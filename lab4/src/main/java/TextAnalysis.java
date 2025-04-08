@@ -1,4 +1,4 @@
-package com.example.parallel.lab4;
+package com.example.parallel.lab4.src.main.java;
 
 import java.util.*;
 import java.util.concurrent.*;
